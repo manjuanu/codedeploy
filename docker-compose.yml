@@ -1,7 +1,7 @@
 version: "3.3"
 services:
  apache-mysql:
-   image: manjuvkp/php:8.0-apache:v1
+   image: manjuvkp/php8.0apache:v1
      #image: pensiero/apache-php-mysql:latest
    container_name: apachemysql
    ports:
