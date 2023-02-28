@@ -1,0 +1,24 @@
+version: 0.2
+
+env:
+  secrets-manager:
+     DOCKERHUB_PASS: "dockerhub:password"
+     DOCKERHUB_USERNAME: "dockerhub:username"
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Docker Hub 
+      - docker login --username $DOCKERHUB_USERNAME --password $DOCKERHUB_PASS
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker image          
+      - docker build -t manjuvkp/apache2mysql:v1 .
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker image Docker Hub
+      - docker push manjuvkp/apache2mysql:v1 
+artifacts:
+    files:
+      - appspec.yml

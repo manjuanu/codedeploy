@@ -1,0 +1,7 @@
+version: "3.3"
+services:
+ apache-mysql:
+   image: manjuvkp/apache2mysql:v1
+   container_name: apachemysql
+   port:
+   80:80
